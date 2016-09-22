@@ -45,8 +45,8 @@ public class FrequencyList{
     public String toString(){
 	String occurrences = "";
 	for (int i = 0; i < charFreq.size(); i++) {
-	    occurrences = occurrences + charFreq.get(i).getKey() + "occurs"
-		+ charFreq.get(i).getValue() + "times." + "\n";
+	    occurrences = occurrences + charFreq.get(i).getKey() + " occurs "
+		+ charFreq.get(i).getValue() + " times." + "\n";
 	}
 	return occurrences;
     }
