@@ -1,5 +1,4 @@
 import structure5.*;
-import FrequencyList.;
 
 public class Table{
 
