@@ -1,29 +1,26 @@
 import structure5.*;
 import java.util.Random;
 
+/* Name: Caroline Kessler
+ * Lab: noon-2 lab
+ *
+ * Class Table - This class is used in WordGen to store sequences of characters as an association
+ * with a FrequencyList containing successor characters. It adds sequences to the vector and also
+ * randomly selects a starting sequence from the vector, or uses a sequence in the vector to have
+ * FrequencyList randomly generate a successor character
+ */
+
 public class Table {
 
-    Vector<Association<String, FrequencyList>> charTable;
-    private FrequencyList listFrequency = new FrequencyList();
-
-    public static void main (String args[]) {
-	//Table table = new Table("banana banana", 2);
-	//Table table = new Table("the theater is their thing", 2);
-	//	System.out.println(table.toString());
-	//System.out.println(table.pickNext("th"));
-    } 
+    private Vector<Association<String, FrequencyList>> charTable;
+    private FrequencyList listFrequency = new FrequencyList(); 
 
     public Table() {
 	charTable = new Vector<Association<String, FrequencyList>>();
-	//String sequence; // Sequence to store in table
-
-	//	for (int i = 0; i < (text.length() - k); i++) {
-	    // sequence = text.substring(i, (i + k + 1));
-
-	    // add(sequence);
-	//}
     }
 
+    // pre: str length greater than 1
+    // post: adds sequence to table and successor char to frequency list
     public void add (String str) {
 	// Gets sequence of length k+1, checks to see if already in table
 	String sequence = str.substring(0, str.length() - 1); // sequence for table
@@ -34,9 +31,9 @@ public class Table {
 	int i; //Index into charTable
 
 	for (i = 0; i < charTable.size(); i++){
-	    current = charTable.get(i);
 	    // If sequence in table, checks FrequencyList for proceeding char and increments
 	    // or adds to list as necessary
+	    current = charTable.get(i);
 	    if (current.equals(match)) {
 		current.getValue().add(next);
 		break;
@@ -52,6 +49,7 @@ public class Table {
 	}
     }
 
+    // post: returns Table as String of sequences, successor characters, and occurrences
     public String toString() {
 	// Uses associated frequency list to print occurences of each k+1 character sequence
 	String occurrences = "";
@@ -62,29 +60,39 @@ public class Table {
 	return occurrences;
     }
 
+    // post: returns String of random sequence
     public String pickFirst() {
+	// Selects a random sequence of k characters already contained in the table
 	Random randomString = new Random();
 	int number = randomString.nextInt(charTable.size());
 	String chosen = charTable.get(number).getKey();
-	System.out.println(chosen);
+
 	return chosen;
 	
     }
 
-    public char pickNext(String str) {
+    // pre: str length k
+    // post: returns random String 
+    public String pickNext(String str) {
 	// Uses input string to randomly generate the (k+1)th character in the sequence
-	char randomChar = '!'; // char to be returned
+	String randomString = ""; // String to be returned
 	Association<String, FrequencyList> match = 
 	    new Association<String, FrequencyList>(str, null); //Association with key for searching
-	Association<String, FrequencyList>current;
+	Association<String, FrequencyList>current; // Empty association to use to compare
+	int i; // Index into charTable
 
-	for (int i = 0; i < charTable.size(); i++) {
+	for ( i = 0; i < charTable.size(); i++) {
 	    current = charTable.get(i);
 	    if (current.equals(match)) {
-		randomChar = current.getValue().pickNext();
+		randomString = "" + current.getValue().pickNext();
 		break;
 	    }
 	}
-	return randomChar;
+	if (i == charTable.size()) {
+	    // If no known successor character to sequence, randomly generate sequence using 
+	    // pickFirst()
+	    randomString = pickFirst();
+	}
+	return randomString;
     }
 }
