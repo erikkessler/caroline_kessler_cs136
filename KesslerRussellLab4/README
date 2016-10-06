@@ -1,0 +1,24 @@
+This directory contains the minimum starter file for MyVector.java and
+Student.java.
+
+When you are finished with this lab, you should turn in MyVector.java,
+Student.java, an implementation of one or more Comparator classes,
+and a program that reads the phone book from the input and answers some
+pressing question using your Comparator applied to students.
+
+pb is the resident student phone book.  Each student is represented by
+three lines:
+
+Aamir U Wyne
+Poker Flats B5
+4135973427 3334 5406394821
+
+The first line is the name of the student, the second is their campus
+address, and the third contains the campus phone, su box, and home phone.
+
+Questions, useful for testing:
+1.  Which student appears first in a printed phone book?
+2.  Which students share the most-shared phones?
+3.  Which student has the smallest SU box?  Largest?
+4.  What is the ranking of area codes of home phones, in decreasing order
+    of Williams population density?
