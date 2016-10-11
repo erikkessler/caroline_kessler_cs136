@@ -15,12 +15,13 @@ public class MyVector<E> extends Vector<E> {
 	while (numUnsorted > 0) {
 	    max = 0;
 	    for (index = 1; index < numUnsorted; index++) {
-		if (c.compare(get(index),get(max)) < 0) {
+		if (c.compare(get(index),get(max)) > 0) {
+		//if (vector.get(max).getSu() < vector.get(index).getSu()) {
 		    max = index;
 		}
-		swap(max, numUnsorted-1);
-		numUnsorted--;
 	    }
+	    swap(max, numUnsorted-1);
+		numUnsorted--;
 	}
     }
 
