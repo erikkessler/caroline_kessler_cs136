@@ -1,5 +1,13 @@
 import java.util.Comparator;
 import structure5.*;
+/*
+ * Names: Eileen Russell and Caroline Kessler
+ * Lab: noon-2 lab
+ *
+ * Class Student - Stores the name, address, campus phone, SU box, and cell number of the 
+ * student. This class has methods to that return the name, SU box number, and count the number
+ * of vowels in a students name.
+ */
 
 public class Student {
     String name;
@@ -8,6 +16,8 @@ public class Student {
     int su;
     long cell;
     
+    // pre: must be created with stuName, stuAddress, stuCampus, stuSu, and stuCell
+    // post: initializes name, address, campus, su, and cell
     public Student(String stuName, String stuAddress,
 			long stuCampus, int stuSu, long stuCell) {
 	name = stuName;
@@ -17,14 +27,18 @@ public class Student {
 	cell = stuCell;
     }
 
+    // pre: SU number exists
+    // post: returns Student SU number
     public Integer getSu() {
 	return su;
     }
 
+    // pre: name exists
+    // post: returns Student name
     public String getName() {
 	return name;
     }
-
+    // pre: name.length() > 0
     // post: returns Integer of number of vowels in name
     public Integer countVowel() {
 	Integer count = 0;

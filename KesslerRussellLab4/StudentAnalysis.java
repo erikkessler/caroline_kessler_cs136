@@ -88,13 +88,15 @@ public class StudentAnalysis {
     public void areaCodeAnalysis(Student s) {
 	int code = s.getAreaCode();
 	Association<Integer, Integer> check = new Association<Integer, Integer>(code, 1);
-	for (int i = 0; i < codeVector.size(); i++) {
-	    // Compares the current area code to all of those already contained in the vector
-	    int compare = codeVector.get(i).getKey();
-	    if (compare == code) {
-		// Increments value of Assocation if area code exists
-		check.setValue(codeVector.get(i).getValue() + 1);
-		codeVector.remove(check);
+	if (code != 0){
+	    for (int i = 0; i < codeVector.size(); i++) {
+		// Compares the current area code to all of those already contained in the vector
+		int compare = codeVector.get(i).getKey();
+		if (compare == code) {
+		    // Increments value of Assocation if area code exists
+		    check.setValue(codeVector.get(i).getValue() + 1);
+		    codeVector.remove(check);
+		}
 	    }
 	}
 	// adds new Association with area code if it does not already exist
@@ -129,13 +131,11 @@ public class StudentAnalysis {
     // post: returns top ten most common area codes and their number of occurrences 
     public String getAreaCodeInfo() {
     	String result = "";
-	for(int i = 1; i < 12; i++) {
-	    if (!mostAreaCode(i).getKey().equals(0)) {
+	for(int i = 1; i < 11; i++) {
 		// finds top ten most common valid area codes
 	    result += "Area code " + mostAreaCode(i).getKey() + 
 		" occurs " + mostAreaCode(i).getValue() + " times." + "\n";
 	    }
-	}
 	return result;
     }
 }
