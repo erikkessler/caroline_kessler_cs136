@@ -1,6 +1,14 @@
 import structure5.*;
 import java.util.Comparator;
 
+/*
+ * Names: Eileen Russell and Caroline Kessler
+ * Lab: noon-2 lab
+ *
+ * Class MyVector - This class extends Vector to include a sort method (selection sort) as well
+ * as a swap method.
+ */
+
 public class MyVector<E> extends Vector<E> {
     public MyVector() {
 	super();
@@ -16,7 +24,8 @@ public class MyVector<E> extends Vector<E> {
 	    max = 0;
 	    for (index = 1; index < numUnsorted; index++) {
 		if (c.compare(get(index),get(max)) > 0) {
-		//if (vector.get(max).getSu() < vector.get(index).getSu()) {
+		    // sets max to value of index is element at index is greater than 
+		    // element at max
 		    max = index;
 		}
 	    }
@@ -25,6 +34,8 @@ public class MyVector<E> extends Vector<E> {
 	}
     }
 
+    // pre: i and j < MyVector.length()
+    // post: Switches the elements at indices i and j
     public void swap(int i, int j) {
 	E temp;
 	temp = get(i);
