@@ -1,11 +1,11 @@
 import structure5.*;
 
 public class Interpreter {
-    StackVector<Token> myStack;
+    Stack<Token> myStack;
     Token next;
     
     public Interpreter(){
-	myStack = new StackVector<Token>();
+	myStack = new StackList<Token>();
     }
 
     public static void main(String []args) {
