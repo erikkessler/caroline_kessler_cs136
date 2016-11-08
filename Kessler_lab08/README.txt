@@ -6,8 +6,8 @@ THOUGHT QUESTIONS:
    Both can be determined using the size method.
 2. When two computers are playing against each, as with HIM and HER, the one who will ultimately
    win more frequently is the one that learns the quickest. The one that will learn the quickest
-   is the one who starts out with the lower probability of winning. If HIM, the one who starts
-   first, has the greatest probability from the start of winning in a 3x3 GameBoard, HER will
+   is the one who starts out with the lower probability of winning. HIM, the one who starts
+   first, has the greatest probability from the start of winning in a 3x3 GameBoard,so  HER will
    learn more quickly and therefore will win most frequently. For larger GameBoards it becomes
    much harder to tell, because it is more difficult to determine which player, HIM or HER,
    starts off with the greatest probability of winning, and therefore the lowest probability
